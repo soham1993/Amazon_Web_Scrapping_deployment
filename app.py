@@ -43,7 +43,7 @@ def get_productdetails(searchterm):
         except:
             pass
     Product_Title,price,Product_url=[],[],[]
-    Names=Names[:min(20,len(Names))]
+    Names=Names[:min(15,len(Names))]
     #print(len(Names))
     ##Extracting the title ,price of the product
     for i in Names:
