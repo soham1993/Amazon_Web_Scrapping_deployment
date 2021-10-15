@@ -1,6 +1,0 @@
-wordnet
-punkt
-word_tokenize
-stopwords
-WordNetLemmatizer
-averaged_perceptron_tagger
