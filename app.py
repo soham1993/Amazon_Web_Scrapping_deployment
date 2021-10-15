@@ -21,7 +21,7 @@ from nltk.stem import WordNetLemmatizer
 nltk.download('averaged_perceptron_tagger')
 import requests
 from bs4 import BeautifulSoup
-import time
+
 
 def get_productdetails(searchterm):
     print('Fetching product list')
@@ -248,7 +248,7 @@ def home():
 
 @app.route('/search',methods=['POST'])
 def search():
-    start_time = time.time()
+  
     sterm = [str(x) for x in request.form.values()]
     sterm=sterm[0]
     print(sterm)
@@ -258,11 +258,11 @@ def search():
     reviews=get_productreviews(productlist)
     finallist=get_finallist(reviews,productlist)
     df=finallist.copy()
-    print("--- %s seconds ---" % (time.time() - start_time))
+    
     return render_template('view.html',  tables=[df.to_html(classes='data')], titles=df.columns.values)
   
         
-        
+       
 
 
 
