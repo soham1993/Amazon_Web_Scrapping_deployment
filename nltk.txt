@@ -1,0 +1,7 @@
+wordnet
+punkt
+pos_tag
+word_tokenize
+stopwords
+WordNetLemmatizer
+averaged_perceptron_tagger
