@@ -36,7 +36,7 @@ def get_productdetails(searchterm):
     Names = []
     #loop to extract the ur of the product 
     for i in soup.find_all('a', class_='a-link-normal a-text-normal'):
-        time.sleep(5)
+        #time.sleep(5)
         try:
             string = i.attrs['href']
             Names.append('https://www.amazon.in'+ string)
@@ -44,7 +44,7 @@ def get_productdetails(searchterm):
             pass
     Product_Title,price,Product_url=[],[],[]
     Names=Names[:min(15,len(Names))]
-    print(Names)
+    #print(Names)
     ##Extracting the title ,price of the product
     for i in Names:
         print(i)
