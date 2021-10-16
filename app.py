@@ -48,7 +48,7 @@ def get_productdetails(searchterm):
     for i in Names:
         print(i)
         try:
-            source2 = requests.get(i,timeout=10).text
+            source2 = requests.get(i).text
             soup2 = BeautifulSoup(source2,'html.parser')
             Title = soup2.find('span', id='productTitle').text
             Title = Title.strip()
@@ -101,7 +101,7 @@ def get_productreviews(productlist):
     reviewlist = []
     product_url=list(productlist['Product_url'].values)
     def get_soup(url):
-        r = requests.get(url,timeout=10)
+        r = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
         return soup
     def get_reviews(soup,asin):
