@@ -255,7 +255,7 @@ def home():
 
 @app.route('/search',methods=['POST'])
 def search():
-  
+    s=requests.Session()
     sterm = [str(x) for x in request.form.values()]
     sterm=sterm[0]
     print(sterm)
