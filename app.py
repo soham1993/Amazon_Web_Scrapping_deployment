@@ -32,6 +32,7 @@ def get_productdetails(searchterm):
     url='https://www.amazon.in/s?k='+searchterm
     source = requests.get(url, headers = headers,timeout=1).text
     soup = BeautifulSoup(source, 'html.parser')
+    print(soup)
     Names = []
     #loop to extract the ur of the product 
     for i in soup.find_all('a', class_='a-link-normal a-text-normal'):
@@ -43,12 +44,13 @@ def get_productdetails(searchterm):
             pass
     Product_Title,price,Product_url=[],[],[]
     Names=Names[:min(15,len(Names))]
-    #print(len(Names))
+   
     ##Extracting the title ,price of the product
     for i in Names:
+        print(i)
         try:
             source2 = requests.get(i, headers=headers,timeout=1).text
-            soup2 = BeautifulSoup(source2, 'lxml')
+            soup2 = BeautifulSoup(source2,'html.parser')
             Title = soup2.find('span', id='productTitle').text
             Title = Title.strip()
            
