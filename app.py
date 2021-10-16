@@ -21,6 +21,7 @@ from nltk.stem import WordNetLemmatizer
 nltk.download('averaged_perceptron_tagger')
 import requests
 from bs4 import BeautifulSoup 
+import time
 
 
 
