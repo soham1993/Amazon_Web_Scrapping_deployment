@@ -21,7 +21,7 @@ from nltk.stem import WordNetLemmatizer
 nltk.download('averaged_perceptron_tagger')
 import requests
 from bs4 import BeautifulSoup 
-from flask_ngrok import run_with_ngrok
+
 
 
 def get_productdetails(searchterm):
@@ -247,7 +247,6 @@ def get_finallist(reviewlist,prod_detail):
 
 app = Flask(__name__)
 
-run_with_ngrok(app)
 @app.route('/')
 def home():
     return render_template('view.html')
