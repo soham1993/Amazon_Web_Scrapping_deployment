@@ -30,7 +30,7 @@ def get_productdetails(searchterm):
     searchterm='+'.join(searchterm.split())
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36'}
     url='https://www.amazon.in/s?k='+searchterm
-    source = requests.get(url, headers = headers).text
+    source = requests.get(url, headers = headers,timeout=10).text
     soup = BeautifulSoup(source, 'html.parser')
     Names = []
     #loop to extract the ur of the product 
@@ -47,7 +47,7 @@ def get_productdetails(searchterm):
     ##Extracting the title ,price of the product
     for i in Names:
         try:
-            source2 = requests.get(i, headers=headers).text
+            source2 = requests.get(i, headers=headers,timeout=10).text
             soup2 = BeautifulSoup(source2, 'lxml')
             Title = soup2.find('span', id='productTitle').text
             Title = Title.strip()
@@ -99,7 +99,7 @@ def get_productreviews(productlist):
     reviewlist = []
     product_url=list(productlist['Product_url'].values)
     def get_soup(url):
-        r = requests.get(url)
+        r = requests.get(url,timeout=10)
         soup = BeautifulSoup(r.text, 'html.parser')
         return soup
     def get_reviews(soup,asin):
