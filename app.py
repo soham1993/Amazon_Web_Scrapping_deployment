@@ -28,9 +28,6 @@ import time
 def get_productdetails(searchterm):
     print('Fetching product list')
     searchterm='+'.join(searchterm.split())
-    #headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0",
-       "Accept-Encoding": "gzip, deflate", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-       "DNT": "1", "Connection": "close", "Upgrade-Insecure-Requests": "1"}
     url='https://www.amazon.in/s?k='+searchterm
     source = requests.get(url,timeout=10).text
     soup = BeautifulSoup(source, 'html.parser')
