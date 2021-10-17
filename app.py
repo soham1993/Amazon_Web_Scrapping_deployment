@@ -102,7 +102,7 @@ def get_productreviews(productlist):
     reviewlist = []
     product_url=list(productlist['Product_url'].values)
     def get_soup(url):
-        r = requests.get(url,headers=headers)
+        r = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
         return soup
     def get_reviews(soup,asin):
