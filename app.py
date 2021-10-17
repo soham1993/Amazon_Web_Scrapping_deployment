@@ -30,7 +30,7 @@ def get_productdetails(searchterm):
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36'}
     searchterm='+'.join(searchterm.split())
     url='https://www.amazon.in/s?k='+searchterm
-    source = requests.get(url,headers=headers).text
+    source = requests.get(url,headers={'User-Agent':'Mozilla/5.0'}).text
     soup = BeautifulSoup(source, 'html.parser')
     #print(soup)
     Names = []
@@ -49,7 +49,7 @@ def get_productdetails(searchterm):
     for i in Names:
         print(i)
         try:
-            source2 = requests.get(i,headers=headers).text
+            source2 = requests.get(i,headers={'User-Agent':'Mozilla/5.0'}).text
             soup2 = BeautifulSoup(source2,'html.parser')
             Title = soup2.find('span', id='productTitle').text
             Title = Title.strip()
