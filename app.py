@@ -143,7 +143,7 @@ def get_productreviews(productlist):
         
     for url in product_url:
         product_name,asin_num=str(url.split('/')[3]),str(url.split('/')[5])
-        for x in range(1,21):
+        for x in range(1,6):
             #print('https://www.amazon.in/'+product_name+'/product-reviews/'+asin_num+'/ref=cm_cr_getr_d_paging_btm_next_'+str(x)+'?ie=UTF8&reviewerType=all_reviews&pageNumber='+str(x))
             soup = get_soup(f'https://www.amazon.in/'+product_name+'/product-reviews/'+asin_num+'/ref=cm_cr_getr_d_paging_btm_next_'+str(x)+'?ie=UTF8&reviewerType=all_reviews&pageNumber='+str(x))
             print(f'Getting page: {x}')
