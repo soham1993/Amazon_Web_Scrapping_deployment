@@ -114,8 +114,20 @@ def get_productreviews(productlist):
     reviewlist = []
     product_url=list(productlist['Product_url'].values)
     def get_soup(url):
-        r = requests.get(url)
-        soup = BeautifulSoup(r.text, 'html.parser')
+         headers = {
+    'Accept-Encoding': 'gzip, deflate, sdch',
+    'Accept-Language': 'en-US,en;q=0.8',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Referer': 'http://www.wikipedia.org/',
+    'Connection': 'keep-alive',
+}      
+        uClient = uReq(url)
+        r = uClient.read()
+        uClient.close()
+        sleep(2)
+        #r = requests.get(url)
+        soup = BeautifulSoup(r, 'html.parser')
         return soup
     def get_reviews(soup,asin):
         reviews = soup.find_all('div', {'data-hook': 'review'})
