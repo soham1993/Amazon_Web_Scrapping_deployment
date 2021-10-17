@@ -83,6 +83,7 @@ def get_productdetails(searchterm):
             price.append(Price)
             Product_url.append(i)
         except:
+            print('Nothing Found')
             pass
             
     cols=['Product_Title','Asin_Num','Price(INR)','Product_url']
