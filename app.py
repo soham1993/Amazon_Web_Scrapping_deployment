@@ -119,11 +119,11 @@ def get_productreviews(productlist):
     product_url=list(productlist['Product_url'].values)
     #print(product_url)
     def get_soup(url):
-        uClient = uReq(url)
-        r = uClient.read()
-        uClient.close()
+        #uClient = uReq(url)
+        #r = uClient.read()
+        #uClient.close()
         #sleep(2)
-        #r = requests.get(url)
+        r = requests.get(url).text
         soup = BeautifulSoup(r, 'html.parser')
         return soup
     def get_reviews(soup,asin):
