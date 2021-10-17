@@ -27,8 +27,17 @@ from bs4 import BeautifulSoup
 def get_productdetails(searchterm):
     print('Fetching product list')
     searchterm='+'.join(searchterm.split())
-    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36'}
+    headers = {
+    'Accept-Encoding': 'gzip, deflate, sdch',
+    'Accept-Language': 'en-US,en;q=0.8',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Referer': 'http://www.wikipedia.org/',
+    'Connection': 'keep-alive',
+}
+
     url='https://www.amazon.in/s?k='+searchterm
+    sleep(2)
     source = requests.get(url,headers=headers).text
     soup = BeautifulSoup(source, 'html.parser')
     #print(soup)
