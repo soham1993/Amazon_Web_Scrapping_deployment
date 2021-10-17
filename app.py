@@ -113,6 +113,7 @@ def get_productreviews(productlist):
     print('Fetching Product reviews')
     reviewlist = []
     product_url=list(productlist['Product_url'].values)
+    print(product_url)
     #print(product_url)
     def get_soup(url):
         uClient = uReq(url)
