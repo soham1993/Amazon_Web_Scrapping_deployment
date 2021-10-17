@@ -245,7 +245,7 @@ def get_finallist(reviewlist,prod_detail):
     return df_final
 
 
-app = Flask(__name__,template_folder=Templates)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
