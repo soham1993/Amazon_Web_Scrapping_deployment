@@ -56,7 +56,7 @@ def get_productdetails(searchterm):
         except:
             pass
     Product_Title,price,Product_url=[],[],[]
-    Names=Names[:min(20,len(Names))]
+    Names=Names[:min(15,len(Names))]
     #print(len(Names))
     ##Extracting the title ,price of the product
     print(len(Names))
@@ -117,7 +117,7 @@ def get_productreviews(productlist):
         uClient = uReq(url)
         r = uClient.read()
         uClient.close()
-        sleep(2)
+        #sleep(2)
         #r = requests.get(url)
         soup = BeautifulSoup(r, 'html.parser')
         return soup
