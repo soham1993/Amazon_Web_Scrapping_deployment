@@ -58,10 +58,11 @@ def get_productdetails(searchterm):
             pass
     Product_Title,price,Product_url=[],[],[]
     Names=Names[:min(15,len(Names))]
-    #print(len(Names))
+    
     ##Extracting the title ,price of the product
     print(len(Names))
     for i in Names:
+        print(i)
         try:
             uClient = uReq(i)
             source2 = uClient.read()
