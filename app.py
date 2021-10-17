@@ -44,7 +44,7 @@ def get_productdetails(searchterm):
             pass
     Product_Title,price,Product_url=[],[],[]
     Names=Names[:min(15,len(Names))]
-    #print(Names)
+    print(len(Names))
     ##Extracting the title ,price of the product
     for i in Names:
         print(i)
