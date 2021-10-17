@@ -22,6 +22,7 @@ nltk.download('averaged_perceptron_tagger')
 import requests
 from bs4 import BeautifulSoup 
 from time import sleep
+from urllib.request import urlopen as uReq
 
 
 def get_productdetails(searchterm):
@@ -38,7 +39,11 @@ def get_productdetails(searchterm):
 
     url='https://www.amazon.in/s?k='+searchterm
     sleep(2)
-    source = requests.get(url,headers=headers).text
+    uClient = uReq(amazon_url)
+    source = uClient.read()
+    uClient.close()
+    sleep(2)
+    #source = requests.get(url,headers=headers).text
     soup = BeautifulSoup(source, 'html.parser')
     #print(soup)
     Names = []
