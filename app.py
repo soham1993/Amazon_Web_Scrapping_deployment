@@ -59,6 +59,7 @@ def get_productdetails(searchterm):
     Names=Names[:min(20,len(Names))]
     #print(len(Names))
     ##Extracting the title ,price of the product
+    print(len(Names)
     for i in Names:
         try:
             source2 = requests.get(i,headers=headers).text
