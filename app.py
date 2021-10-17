@@ -283,21 +283,21 @@ def home():
 @app.route('/search',methods=['POST'])
 @cross_origin()
 def search():
-    
-    sterm = [str(x) for x in request.form.values()]
-    sterm=sterm[0]
-    print(sterm)
-    productlist=get_productdetails(sterm)
-    if productlist.empty:
-        return render_template('error404.html')
-    reviews=get_productreviews(productlist)
-    finallist=get_finallist(reviews,productlist)
-    df=finallist.copy()
-    
-    return render_template('view.html',message='Search results for '+sterm ,tables=[df.to_html(classes='data',header='True',index=False)])
-  
-        
-       
+    if request.method == 'POST':
+        sterm = [str(x) for x in request.form.values()]
+        sterm=sterm[0]
+        print(sterm)
+        productlist=get_productdetails(sterm)
+        if productlist.empty:
+            return render_template('error404.html')
+        reviews=get_productreviews(productlist)
+        finallist=get_finallist(reviews,productlist)
+        df=finallist.copy()
+
+        return render_template('view.html',message='Search results for '+sterm ,tables=[df.to_html(classes='data',header='True',index=False)])
+
+
+
 
 
 
