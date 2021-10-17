@@ -61,9 +61,7 @@ def get_productdetails(searchterm):
     Names=Names[:min(15,len(Names))]
     
     ##Extracting the title ,price of the product
-    print(len(Names))
     for i in Names:
-        print(i)
         try:
             uClient = uReq(i)
             source2 = uClient.read()
@@ -119,7 +117,6 @@ def get_productreviews(productlist):
     print('Fetching Product reviews')
     reviewlist = []
     product_url=list(productlist['Product_url'].values)
-    print(product_url)
     #print(product_url)
     def get_soup(url):
         uClient = uReq(url)
@@ -151,11 +148,11 @@ def get_productreviews(productlist):
         
     for url in product_url:
         product_name,asin_num=str(url.split('/')[3]),str(url.split('/')[5])
-        print(product_name)
+        #print(product_name)
         for x in range(1,6):
             #print('https://www.amazon.in/'+product_name+'/product-reviews/'+asin_num+'/ref=cm_cr_getr_d_paging_btm_next_'+str(x)+'?ie=UTF8&reviewerType=all_reviews&pageNumber='+str(x))
             soup = get_soup(f'https://www.amazon.in/'+product_name+'/product-reviews/'+asin_num+'/ref=cm_cr_getr_d_paging_btm_next_'+str(x)+'?ie=UTF8&reviewerType=all_reviews&pageNumber='+str(x))
-            print(f'Getting page: {x}')
+            #print(f'Getting page: {x}')
             get_reviews(soup,asin_num)
             print(len(reviewlist))
             if not soup.find('li', {'class': 'a-disabled a-last'}):
