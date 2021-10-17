@@ -273,7 +273,7 @@ def get_finallist(reviewlist,prod_detail):
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 
 def home():
     return render_template('view.html')
@@ -282,7 +282,7 @@ def home():
 @app.route('/search',methods=['POST'])
 
 def search():
-    if request.method == 'POST':
+    
         sterm = [str(x) for x in request.form.values()]
         sterm=sterm[0]
         print(sterm)
