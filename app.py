@@ -39,6 +39,7 @@ def get_productdetails(searchterm):
 }
 
     url='https://www.amazon.in/s?k='+searchterm
+    print(url)
     sleep(2)
     uClient = uReq(url)
     source = uClient.read()
