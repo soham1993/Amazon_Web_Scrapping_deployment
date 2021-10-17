@@ -113,6 +113,7 @@ def get_productreviews(productlist):
     print('Fetching Product reviews')
     reviewlist = []
     product_url=list(productlist['Product_url'].values)
+    #print(product_url)
     def get_soup(url):
         uClient = uReq(url)
         r = uClient.read()
@@ -143,6 +144,7 @@ def get_productreviews(productlist):
         
     for url in product_url:
         product_name,asin_num=str(url.split('/')[3]),str(url.split('/')[5])
+        print(product_name)
         for x in range(1,6):
             #print('https://www.amazon.in/'+product_name+'/product-reviews/'+asin_num+'/ref=cm_cr_getr_d_paging_btm_next_'+str(x)+'?ie=UTF8&reviewerType=all_reviews&pageNumber='+str(x))
             soup = get_soup(f'https://www.amazon.in/'+product_name+'/product-reviews/'+asin_num+'/ref=cm_cr_getr_d_paging_btm_next_'+str(x)+'?ie=UTF8&reviewerType=all_reviews&pageNumber='+str(x))
