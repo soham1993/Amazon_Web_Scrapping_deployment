@@ -62,7 +62,10 @@ def get_productdetails(searchterm):
     print(len(Names))
     for i in Names:
         try:
-            source2 = requests.get(i,headers=headers).text
+            uClient = uReq(i)
+            source2 = uClient.read()
+            uClient.close()
+            #source2 = requests.get(i,headers=headers).text
             soup2 = BeautifulSoup(source2, 'html.parser')
             Title = soup2.find('span', id='productTitle').text
             Title = Title.strip()
