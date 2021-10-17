@@ -39,13 +39,13 @@ def get_productdetails(searchterm):
 }
 
     url='https://www.amazon.in/s?k='+searchterm
-    print(url)
-    sleep(2)
-    uClient = uReq(url)
-    source = uClient.read()
-    uClient.close()
-    sleep(2)
-    #source = requests.get(url,headers=headers).text
+    #print(url)
+    #sleep(2)
+    #uClient = uReq(url)
+    #source = uClient.read()
+    #uClient.close()
+    #sleep(2)
+    source = requests.get(url,headers=headers).text
     soup = BeautifulSoup(source, 'html.parser')
     #print(soup)
     Names = []
@@ -154,7 +154,7 @@ def get_productreviews(productlist):
             soup = get_soup(f'https://www.amazon.in/'+product_name+'/product-reviews/'+asin_num+'/ref=cm_cr_getr_d_paging_btm_next_'+str(x)+'?ie=UTF8&reviewerType=all_reviews&pageNumber='+str(x))
             #print(f'Getting page: {x}')
             get_reviews(soup,asin_num)
-            print(len(reviewlist))
+            #print(len(reviewlist))
             if not soup.find('li', {'class': 'a-disabled a-last'}):
                 pass
             else:
