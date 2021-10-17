@@ -5,6 +5,7 @@ Created on Thu Oct 14 22:18:45 2021
 @author: SOHAM
 """
 from flask import Flask, request, render_template, session, redirect
+from flask_cors import CORS, cross_origin
 from textblob import TextBlob as tb
 import pandas as pd
 import numpy as np
